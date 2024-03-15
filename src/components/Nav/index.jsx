@@ -1,9 +1,12 @@
-import React from 'react'
+import Searchbar from "../Searchbar";
+
 
 const Navbar = () => {
   return (
     <div className='bg-red-300'>
-        Navbar</div>
+        Navbar
+        <Searchbar />
+    </div>
   )
 }
 
