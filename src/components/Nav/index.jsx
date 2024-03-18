@@ -1,23 +1,26 @@
-import Searchbar from "../Searchbar";
 import { NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 
+import { Searchbar } from "../Search/SearchBar";
+import { Search } from "../Search";
+
+
 
 const NavLinks = () => {
   return (
     <>
-  <NavLink to="/" className="block mb-4 mt-2 md:mb-0 md:mt-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
-    Home
-  </NavLink>
-  <NavLink to="/product" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
-    Product
-  </NavLink>
-  <NavLink to="/Contact" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
-    Contact
-  </NavLink>
+   <NavLink to="/" className="block mb-4 mt-2 md:mb-0 md:mt-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
+        Home
+      </NavLink>
+      <NavLink to="/product" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
+        Product
+      </NavLink>
+      <NavLink to="/Contact" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
+        Contact
+      </NavLink>
 
 
 
@@ -35,11 +38,11 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="flex w-1/3 justify-end">
+    <nav className="flex jusify-between">
       <div className="hidden md:flex mr-10">
-        <Searchbar />
+
       </div>      
-      <div className="hidden w-full mt-1 justify-between md:flex">
+      <div className="hidden mt-1 md:flex">
         <NavLinks />
       </div>
      
@@ -60,7 +63,6 @@ const Navbar = () => {
     {isOpen && (
       <div className="flex basis-full flex-col items-center md:hidden">
           <div className="mt-2">
-      <Searchbar />
     </div>
         <NavLinks />
       </div>
