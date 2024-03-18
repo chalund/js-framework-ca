@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoIosSearch, IoIosClose } from "react-icons/io";
+import { useFetch } from "../Hooks/useFetch";
 
 
 function Searchbar() {
@@ -20,7 +21,7 @@ function Searchbar() {
             placeholder="Search"
             autoComplete="off"
             aria-label="Search"
-            className='pr-3 pl-10 py-2 font-semibold text-sm placeholder-gray-500 text-black rounded-2xl border-none ring-gray-300 focus:ring-gray-500 focus:ring-2'
+            className=' pl-10  py-2 font-semibold text-sm placeholder-gray-500 text-black rounded-2xl border-none ring-gray-300 focus:ring-gray-500 focus:ring-2'
           />
             <IoIosClose 
             className="absolute top-1/2 transform -translate-y-1/2 right-3 w-5 h-5 cursor-pointer"
