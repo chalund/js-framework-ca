@@ -5,7 +5,6 @@ import { SearchResultsList } from "./SearchResultList";
 export function Search() {
     const [results, setResults] = useState([]);
 
-    // Callback function to update results in App component
     const handleSetResults = useCallback((newResults) => {
       setResults(newResults);
     }, []);

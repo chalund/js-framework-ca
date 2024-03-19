@@ -7,28 +7,25 @@ export const Searchbar = ({ setResults }) => {
   const [input, setInput] = useState('');
   const [data, setData] = useState([]);
 
-  // Using the useFetch hook to fetch data
   const { data: fetchedData } = useFetch('https://v2.api.noroff.dev/online-shop');
 
   useEffect(() => {
     setData(fetchedData);
   }, [fetchedData]);
 
-  // Handling input change
   const handleChange = (value) => {
     setInput(value);
   };
 
-  // Handling clearing input
   const handleClearInput = () => {
     setInput('');
   };
 
-  // Filtering data based on input value and updating results in parent component
+
   useEffect(() => {
     const filteredResults = data.filter(item => item.title.toLowerCase().includes(input.toLowerCase()));
     setResults(filteredResults);
-console.log('filteredResults', filteredResults)
+  console.log('filteredResults', filteredResults)
 
   }, [input, data, setResults]);
 
