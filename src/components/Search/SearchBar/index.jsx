@@ -30,19 +30,22 @@ export const Searchbar = ({ setResults }) => {
   }, [input, data, setResults]);
 
   return (
+    <div>
     <div className="w-full max-w-[400px] mx-auto h-9 bg-white rounded-lg shadow-md flex items-center">
-      <FaSearch size={20} className="text-purple-600 ml-3" />
-      <input 
-        className="bg-transparent border-none h-full w-full ml-1 text-lg focus:outline-none" 
-        placeholder='Type to search...' 
-        value={input} 
-        onChange={(e) => handleChange(e.target.value)} 
-      />  
-      <IoCloseOutline 
-        size={30}
-        onClick={handleClearInput} 
-        className='cursor-pointer mr-3' 
-      />
+        <FaSearch size={20} className="text-purple-600 ml-3" />
+        <input 
+          className="bg-transparent border-none h-full w-full ml-1 text-lg focus:outline-none" 
+          placeholder='Type to search...' 
+          value={input} 
+          onChange={(e) => handleChange(e.target.value)} 
+        />  
+        <IoCloseOutline 
+          size={30}
+          onClick={handleClearInput} 
+          className='cursor-pointer mr-3' 
+        />
+      </div>
     </div>
+  
   );
 };

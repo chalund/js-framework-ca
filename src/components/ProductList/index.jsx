@@ -1,7 +1,7 @@
 import { useFetch } from "../Hooks/useFetch"
 import { Link } from "react-router-dom"
 
-const calculateDiscountPercentage = (price, discountedPrice) => {
+export const calculateDiscountPercentage = (price, discountedPrice) => {
     if (discountedPrice && discountedPrice !== price) {
       const discountPercentage = ((price - discountedPrice) / price * 100).toFixed(2);
       return parseFloat(discountPercentage).toString().replace(/\.0+$/, '');

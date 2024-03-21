@@ -3,7 +3,7 @@ import { Layout } from "./components/Layout"
 import Home from "./pages/Home"
 import ProductDetails from "./components/ProductDetails"
 import Contact from "./pages/Contact"
-import { ProductList } from "./components/ProductList"
+import Products from "./pages/Products"
 import { Shoppingcart } from "./pages/Shoppingcart"
 
 
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="product/:id" element={<ProductDetails />} />
-          <Route path="product" element={<ProductList />}/>
+          <Route path="product" element={<Products />}/>
           <Route path="shoppingCart" element={<Shoppingcart />} />
           <Route path="contact" element={<Contact />} />
         </Route>
