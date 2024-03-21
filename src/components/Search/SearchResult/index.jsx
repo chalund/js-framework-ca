@@ -6,7 +6,7 @@ export const SearchResult = ({ result }) => {
   return (
     <div className="flex justify-center flex-wrap">
         <div key={result.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
-          <div style={{ position: 'relative', width: '300px', height: '300px' }}>
+          <div style={{ position: 'relative', width: '300px', height: '250px' }}>
                         {/* Image Link */}
                         <Link to={`/product/${result.id}`} style={{ display: 'block', width: '100%', height: '100%' }}>
                             <img className="rounded-t-lg object-cover w-full h-full" src={result.image.url} alt={result.title} />
@@ -39,10 +39,10 @@ export const SearchResult = ({ result }) => {
             </div>
 
             <div className="flex">
-              <Link to={`/X/${result.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <Link to={`/X/${result.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-400 rounded-lg hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-600 dark:focus:ring-orange-600">
               <FiShoppingCart size={20} /> 
               </Link>
-              <Link to={`/product/${result.id}`} className="ms-3 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <Link to={`/product/${result.id}`} className="ms-3 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-600 rounded-lg hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
                 View Product
               </Link>
             </div>

@@ -3,7 +3,7 @@ import { Search } from '../../components/Search'
 
 const Products = () => {
   return (
-    <div>
+    <div className="mx-auto max-w-screen-xl">
           <h1>Products Page</h1>
           <Search />
     </div>
