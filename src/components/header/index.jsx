@@ -3,7 +3,6 @@ import Navbar from '../Nav'
 import Logo from '../Logo'
 
 
-
 export const Header = () => {
   return (
     <div className='bg-orange-300 sticky top-0 z-[20]'>
