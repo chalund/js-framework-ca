@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useFetch } from '../Hooks/useFetch';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -46,6 +47,16 @@ export const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
+    //not sure if this should be there?
+    fetch('https://v2.api.noroff.dev/online-shop', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+
+
+
+  
     if (validateForm()) {
       // Submit the form data
       console.log('Form submitted:', formData);
@@ -99,7 +110,7 @@ export const ContactForm = () => {
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
           <div className='mb-1'>
-            <label htmlFor="subject" className="mb-1 block text-base font-medium text-gray-800">
+            <label htmlFor="e-mail" className="mb-1 block text-base font-medium text-gray-800">
               E-mail
             </label>
             <input
@@ -127,7 +138,7 @@ export const ContactForm = () => {
             {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
           </div>
           <div className='mb-5'>
-            <label htmlFor="subject" className="mb-1 block text-base font-medium text-gray-800">
+            <label htmlFor="message" className="mb-1 block text-base font-medium text-gray-800">
               Subject
             </label>
             <textarea
