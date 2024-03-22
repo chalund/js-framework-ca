@@ -9,6 +9,7 @@ export const ContactForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState('')
 
   const validateForm = () => {
     const errors = {};
@@ -48,14 +49,28 @@ export const ContactForm = () => {
     if (validateForm()) {
       // Submit the form data
       console.log('Form submitted:', formData);
+      setAlert('Your message has been sent successfully!');
+      // Clear form fields after submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
     }
   };
 
   const handleChange = (e) => {
+    const { name, value} =e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    setErrors({
+        ...errors,
+        [name]: value.trim().length >= 3 ? '' : `${name.charAt(0).toUpperCase() + name.slice(1)} must be at least 3 characters`
+      });
   };
 
   return (
@@ -79,8 +94,8 @@ export const ContactForm = () => {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md ${errors.name && 'border-red-500'}`}
-            />
+              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-orange-600 focus:ring-0 focus:shadow-md ${errors.name && 'border-red-500'}`}
+              />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
           <div className='mb-1'>
@@ -93,7 +108,7 @@ export const ContactForm = () => {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md ${errors.name && 'border-red-500'}`}
+              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-orange-600 focus:ring-0 ${errors.name && 'border-red-500'}`}
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
@@ -107,7 +122,7 @@ export const ContactForm = () => {
               placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
-              className={`w-full rounded-md border border-[#e0e0e0] bg-white py2 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md ${errors.name && 'border-red-500'}`}
+              className={`w-full rounded-md border border-[#e0e0e0] bg-white py2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-orange-600 focus:ring-0 ${errors.name && 'border-red-500'}`}
             />
             {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
           </div>
@@ -119,9 +134,9 @@ export const ContactForm = () => {
               rows={4}
               name="message"
               placeholder="Type your message.."
-              value={formData.subject}
+              value={formData.message}
               onChange={handleChange}
-              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md ${errors.message && 'border-red-500'}`}
+              className={`w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-orange-600 focus:ring-0 ${errors.message && 'border-red-500'}`}
             />
             {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
           </div>
@@ -130,10 +145,15 @@ export const ContactForm = () => {
                 type="submit"
                 className="hover:shadow-form rounded-md bg-purple-600 py-3 px-8 text-base font-semibold text-white outline-none"
             >
-                Submit
+                Send message
             </button>
             </div>
         </form>
+        {alert && (
+            <div className="mt-4 p-2 bg-green-200 text-green-800 rounded">
+              {alert}
+            </div>
+          )}
       </div>
     </div>
     </div>
