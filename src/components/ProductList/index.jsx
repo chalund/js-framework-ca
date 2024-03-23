@@ -11,7 +11,7 @@ export const calculateDiscountPercentage = (price, discountedPrice) => {
   };
   
 
-export const ProductList = () => {
+export const ProductListOld = () => {
     const { data, isLoading, isError } = useFetch('https://v2.api.noroff.dev/online-shop');
 
     if (isLoading) {
