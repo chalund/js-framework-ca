@@ -5,29 +5,43 @@
 //4. add cart CRUD
     // add a product to the cart
     // clear the cart
+    // get number of items in cart
+    // remove a product from the cart
     // get cart total
-    //remove a product from the cart 
-
 
     import { create } from 'zustand';
 
     const useProductStore = create((set) => ({
         products: [],
         cart: [],
+  
+
         fetchProducts: async () => {
             const response = await fetch('https://v2.api.noroff.dev/online-shop'); 
             const json = await response.json();
             set((state) => ({...state, products: json.data}))
-    
         },
         addToCart: (id) => {
             set((state) => {
-                const product = state.products.find(currentProduct => id === currentProduct.id);
-                console.log(product)
-                return {...state, cart: [...state.cart, product] }
+                const product = state.products.find(
+                (currentProduct) => id === currentProduct.id,
+                );
+
+                const productInCartIndex = state.cart.findIndex(
+                (currentProduct) => id === currentProduct.id,
+                );
+
+                if (productInCartIndex === -1) {
+                    product.quantity = 1;
+                    return {...state, cart: [...state.cart, product] };
+                }
+                state.cart[productInCartIndex].quantity += 1;
+                return { ...state }             
             });
-            console.log("Add to cart", id);
         },
+        clearCart: () => set(() => ({ cart: []})),
+        deleteProductFromCart: () => set((state) => ({...state})),
+       
     }));
 
     export default useProductStore;
