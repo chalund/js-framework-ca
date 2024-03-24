@@ -42,15 +42,23 @@
         },
         clearCart: () => set(() => ({ cart: []})),
         deleteProductFromCart: (id) => 
-            set((state) => {
-                const updatedCart = state.cart.filter(product => {
-                    if (product.id === id) {
-                        return false;
-                    }
-                    return true;
-                })
-                return {...state, cart: updatedCart} 
-            }),
+        set((state) => {
+            const updatedCart = [...state.cart];
+            const indexToRemove = updatedCart.findIndex(product => product.id === id);
+    
+            if (indexToRemove !== -1) {
+                // If the product exists in the cart
+                if (updatedCart[indexToRemove].quantity > 1) {
+                    // If the quantity is greater than 1, decrement the quantity by 1
+                    updatedCart[indexToRemove].quantity -= 1;
+                } else {
+                    // If the quantity is 1, remove the product from the cart
+                    updatedCart.splice(indexToRemove, 1);
+                }
+            }
+    
+            return { ...state, cart: updatedCart };
+        }),
         getCartTotal: () => 
             get()
             .cart.reduce((total, product) => {

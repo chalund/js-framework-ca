@@ -5,6 +5,7 @@ import ProductDetails from "./components/ProductDetailsNew"
 import Contact from "./pages/Contact"
 import Products from "./pages/Products"
 import { Shoppingcart } from "./pages/Shoppingcart"
+import Checkout from "./pages/Success"
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="product/:id" element={<ProductDetails />} />
           <Route path="product" element={<Products />}/>
           <Route path="shoppingCart" element={<Shoppingcart />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>

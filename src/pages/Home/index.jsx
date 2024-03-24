@@ -10,9 +10,8 @@ const Home = () => {
 
   return (
     <div className="mx-auto max-w-screen-xl flex">
-      <div className="w-[50%]">
+      <div className="">
         <h1>Home</h1>
-      
         <ProductList />
       </div>
    
