@@ -11,9 +11,10 @@
 
     import { create } from 'zustand';
 
-    const useProductStore = create((set) => ({
+    const useProductStore = create((set, get) => ({
         products: [],
         cart: [],
+        cartTotal: 0,
   
 
         fetchProducts: async () => {
@@ -40,8 +41,29 @@
             });
         },
         clearCart: () => set(() => ({ cart: []})),
-        deleteProductFromCart: () => set((state) => ({...state})),
-       
+        deleteProductFromCart: (id) => 
+            set((state) => {
+                const updatedCart = state.cart.filter(product => {
+                    if (product.id === id) {
+                        return false;
+                    }
+                    return true;
+                })
+                return {...state, cart: updatedCart} 
+            }),
+        getCartTotal: () => 
+            get()
+            .cart.reduce((total, product) => {
+                const currentPrice = product.quantity * product.price; 
+                total += currentPrice;
+                return total;
+            }, 0),
+        getTotalNumberOfItemsInCart: () => 
+            get.call().cart.reduce((total, product) => {
+                total+= product.quantity;
+                return total;
+            }, 0)
     }));
+
 
     export default useProductStore;

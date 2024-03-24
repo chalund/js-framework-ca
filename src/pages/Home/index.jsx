@@ -5,7 +5,7 @@ import Cart from "../../components/Cart";
 
 
 const Home = () => {
-  const {cart, clearCart, totalNumberOfItems} = useProductStore(); 
+  const {cart, clearCart, getTotalNumberOfItemsInCart} = useProductStore(); 
   console.log(cart)
 
   return (
@@ -13,8 +13,7 @@ const Home = () => {
       <div className="w-[50%]">
         <h1>Home</h1>
         <button onClick={clearCart} className="bg-gray-700 text-white font-bold py-1 px-3 rounded">Clear Cart</button>
-        {console.log(cart)}
-        <div>Cart items: {totalNumberOfItems}</div>
+        <div>Cart items: {getTotalNumberOfItemsInCart()}</div>
         <ProductList />
       </div>
       <div className="w-[50%] bg-orange-200 p-4">
