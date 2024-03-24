@@ -12,13 +12,10 @@ const Home = () => {
     <div className="mx-auto max-w-screen-xl flex">
       <div className="w-[50%]">
         <h1>Home</h1>
-        <button onClick={clearCart} className="bg-gray-700 text-white font-bold py-1 px-3 rounded">Clear Cart</button>
-        <div>Cart items: {getTotalNumberOfItemsInCart()}</div>
+      
         <ProductList />
       </div>
-      <div className="w-[50%] bg-orange-200 p-4">
-        <Cart />
-      </div>
+   
    
    
 

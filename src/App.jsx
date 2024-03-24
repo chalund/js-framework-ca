@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Layout } from "./components/Layout"
 import Home from "./pages/Home"
-import ProductDetails from "./components/ProductDetails"
+import ProductDetails from "./components/ProductDetailsNew"
 import Contact from "./pages/Contact"
 import Products from "./pages/Products"
 import { Shoppingcart } from "./pages/Shoppingcart"
