@@ -6,6 +6,7 @@ import { FiShoppingCart } from "react-icons/fi";
 
 import { Searchbar } from "../Search/SearchBar";
 import { Search } from "../Search";
+import CartItems from "../CartItems";
 
 
 
@@ -48,13 +49,14 @@ const Navbar = () => {
      
       <div className="w-[40px] items-center">
         <NavLink to="/Shoppingcart" className="hover:text-purple-700">
-          <FiShoppingCart
+          {/* <FiShoppingCart
             size={20}
             className="mt-1 md:ml-1 lg:ml-6  hover:scale-150"
-          />
+          /> */}
+          <CartItems />
         </NavLink>
       </div>
-      <div className="md:hidden">
+      <div className="sm: ms-2 md:hidden">
         <button onClick={toggleNavbar}>
         {isOpen ? <IoClose size={30}/> : <IoIosMenu size={30}/> }
         </button>
