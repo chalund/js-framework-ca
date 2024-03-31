@@ -23,6 +23,7 @@ export default function ProductList() {
 
     return (
         <div className="flex flex-wrap justify-center">
+            
             {products.map((product) => (
                 <Product 
                     key={product.id}

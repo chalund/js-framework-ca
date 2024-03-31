@@ -4,8 +4,7 @@ import { IoIosMenu } from "react-icons/io";
 import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 
-import { Searchbar } from "../Search/SearchBar";
-import { Search } from "../Search";
+
 import CartItems from "../CartItems";
 
 

@@ -1,4 +1,4 @@
-import { Search } from "../../components/Search"
+
 import ProductList from "../../components/ProductList"
 import useProductStore from "../../components/store/products";
 import Cart from "../../components/Cart";
