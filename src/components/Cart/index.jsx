@@ -1,8 +1,11 @@
 import React from 'react'
 import useProductStore from '../store/products'
+import { Link } from 'react-router-dom';
+import { IoTrashBinOutline } from "react-icons/io5";
+
 
 function Cart() {
-    const { cart, deleteProductFromCart, getCartTotal, clearCart, addToCart } = useProductStore();
+    const { cart, deleteProductFromCart, getCartTotal, addToCart, getTotalNumberOfItemsInCart } = useProductStore();
 
 
     function handleAddItemInCart(id) {
@@ -20,21 +23,94 @@ function Cart() {
         }
     }
 
-    return (
-        <div>
-            <h3>Cart</h3>
-            <button onClick={clearCart} className="bg-gray-700 text-white font-bold py-1 px-3 rounded">Clear Cart</button>
-
-            <p>Cart total: ${getCartTotal().toFixed(2)}</p>
-            {cart.map(({ id, title, price, quantity }) => (
-                <div key={`cart-${id}`}>
-                    <div>{title}: {quantity}</div>
-                    <div>{price}</div>
-                    <button onClick={() => handleRemoveItemFromCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
-                    <button onClick={() => handleAddItemInCart(id)} className="ms-2 bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+    function handlePrice(price, discountedPrice) {
+        if (price !== discountedPrice) {
+            return (
+                <div className='space-x-3'>
+                    <del className="text-gray-500">{price}</del>
+                    <span className="text-red-500">{discountedPrice}</span>
                 </div>
-            ))}
-        </div>
+            );
+        } else {
+            return <div>{price}</div>;
+        }
+    }
+
+
+
+
+  
+        return (
+            <div>
+                <div className='mx-auto max-w-screen-lg py-2 flex w-full items-center justify-between flex-wrap"'>
+                    <div className='my-2 mx-2 sm:mx-6 lg:mx-8'>
+                        <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:mx-8'>
+                            <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'> 
+                    
+              
+                <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Image</th>
+                            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
+                            <th scope="col" className="hidden md:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                            <th scope="col" className="hidden lg:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+                            <th scope="col" className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        {cart.map(({ id, image, title, price, discountedPrice, quantity }) => (
+                            <tr key={`cart-${id}`}>
+                                <td className="px-6 py-4  ">
+                                    <img src={image.url} alt={image.alt} className="w-20 h-20" />
+                                </td>
+                                <td className="w-full sm:w-auto sm:w-px-4 py-4 whitespace-nowrap">
+                                    {title}
+
+                                    <dl className='lg:hidden'>
+                                        <dt className='sr-only'>Quantity</dt>
+                                        <dd>
+                                            <div className="flex items-center mt-2">
+                                                <button onClick={() => handleRemoveItemFromCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
+                                                <p className="mx-2">{quantity}</p>
+                                                <button onClick={() => handleAddItemInCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                  
+                               
+                                </td>
+                                <td className="hidden md:table-cell px-4 py-4 ">{handlePrice(price, discountedPrice)}</td>
+                                <td className="hidden lg:table-cell px-4 py-4 whitespace-nowrap">
+                                    <div className="flex items-center">
+                                        <button onClick={() => handleRemoveItemFromCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
+                                        <p className="mx-2">{quantity}</p>
+                                        <button onClick={() => handleAddItemInCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+                                    </div>
+                                </td>
+                                <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap">{(discountedPrice || price) * quantity}</td>
+                                <td className="px-4 py-4 whitespace-nowrap">
+                                    <button onClick={() => handleRemoveItemFromCart(id)} className="bg-red-500 text-white font-bold py-3 px-2 rounded"><IoTrashBinOutline size={20} /></button>
+                                </td>
+                            </tr>
+                        ))}
+                             <tr>
+                        
+                            <td colSpan={6} className=" py-4 whitespace-nowrap text-right">
+                                <p className="text-xl font-medium mr-4">Total: ${getCartTotal().toFixed(2)}</p>
+                            </td>
+                        </tr> 
+                   
+                    </tbody>
+               
+                </table>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
     )
 }
 
