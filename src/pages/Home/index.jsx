@@ -3,6 +3,9 @@ import ProductList from "../../components/ProductList"
 import useProductStore from "../../components/store/products";
 import Cart from "../../components/Cart";
 import SearchBar from "../../components/SearchNew/SearchBar";
+import HeroSection from "../../components/HeroSection";
+import { NewProducts } from "../../components/NewProducts";
+
 
 
 const Home = () => {
@@ -11,14 +14,8 @@ const Home = () => {
 
   return (
     <div className="mx-auto max-w-screen">
-      <div className="">
-        <h1>Home</h1>
-        <ProductList />
-      </div>
-   
-   
-   
-
+      <HeroSection />
+      <ProductList />
     </div>
   )
 }
