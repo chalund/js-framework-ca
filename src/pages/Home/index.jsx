@@ -1,9 +1,6 @@
-
 import ProductList from "../../components/ProductList"
 import useProductStore from "../../components/store/products";
 import HeroSection from "../../components/HeroSection";
-
-
 
 
 const Home = () => {

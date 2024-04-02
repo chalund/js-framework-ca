@@ -1,6 +1,4 @@
 import { useParams } from "react-router-dom";
-
-
 import { useEffect, useState } from "react";
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,22 +8,18 @@ import StarRate from "../../components/StarRate";
 
 function ProductDetails() {
     const { id } = useParams();
-    const { products, fetchProducts, cart, addToCart } = useProductStore(); // Import the store and its methods
+    const { products, fetchProducts, cart, addToCart } = useProductStore(); 
     const [quantity, setQuantity] = useState(1);
 
-    // Fetch products on component mount
     useEffect(() => {
         fetchProducts();
     }, [fetchProducts]);
 
-    // Find the product with the given id
     const product = products.find((product) => product.id === id);
 
     if (!product) {
-        return <div>Loading...</div>; // Add loading indicator
+        return <div>Loading...</div>; 
     }
-    console.log(product)
-
 
     const handleDecreaseQuantity = () => {
         setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
@@ -36,7 +30,7 @@ function ProductDetails() {
     };
 
     const onAddToCartClick = () => {
-        addToCart(product.id, quantity); // Pass product id and quantity to addToCart
+        addToCart(product.id, quantity); 
         toast.success('Product added to cart!', {
             position: 'top-center',
             hideProgressBar: true,
@@ -44,11 +38,6 @@ function ProductDetails() {
         });
     };
     
-
-
-
-
-
     return (
         <div className="flex flex-col justify-center items-center h-screen">
             <ToastContainer />

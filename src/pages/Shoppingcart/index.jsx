@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Cart from '../../components/Cart';
 import useProductStore from '../../components/store/products';
@@ -15,7 +14,6 @@ export const Shoppingcart = () => {
 
   return (
     <div className='mx-auto max-w-screen '>
-
       <div className='mx-auto max-w-screen-md flex justify-evenly my-10'>
         <div className='md:flex items-center mx-auto'>
           <h1 className='text-3xl mr-2'>Shoppingcart</h1>
@@ -36,8 +34,6 @@ export const Shoppingcart = () => {
               )}
         </div>
       </div>
-   
-
       <Cart cart={cartItems} />
       <div className='flex justify-center'>
       {cart.length > 0 ? (
@@ -50,7 +46,6 @@ export const Shoppingcart = () => {
           </button>
         )}
       </div>
-
     </div>
   )
 }
