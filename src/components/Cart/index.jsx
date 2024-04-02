@@ -40,15 +40,16 @@ function Cart() {
 
 
   
-        return (
-            <div>
-                <div className='mx-auto max-w-screen max-w-[1024px]'>
-                    <div className='my-2 mx-2 sm:mx-6 lg:mx-8'>
-                        <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:mx-8'>
-                            <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'> 
-                    
-              
-                <table className="min-w-full divide-y divide-gray-200">
+    return (
+        <div className='mx-auto max-w-screen max-w-[1024px]'>
+            {cart.length === 0 ? (
+                <div className="text-center my-8">
+                    <p className="text-lg font-semibold">You have no items in your cart.</p>
+                </div>
+            ) : (
+                <div className='inline-block min-w-full py-2 align-middle px-2 md:px-6 lg:mx-8'>
+                    <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg'> 
+                        <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
                             <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Image</th>
@@ -105,7 +106,7 @@ function Cart() {
                                     {((discountedPrice || price) * quantity).toFixed(2)}
                                 </td>
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    <button onClick={() => handleRemoveItemFromCart(id)} className="font-bold py-3 px-2 hover:text-red-700"><IoTrashBinOutline size={30} /></button>
+                                    <button onClick={() => handleRemoveItemFromCart(id)} className="font-bold py-3 px-2 text-gray-700 hover:text-red-700"><IoTrashBinOutline size={30} /></button>
                                 </td>
                             </tr>
                         ))}
@@ -118,14 +119,12 @@ function Cart() {
                    
                     </tbody>
                
-                </table>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            
-    )
+                    </table>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default Cart;

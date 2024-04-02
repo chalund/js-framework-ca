@@ -21,7 +21,7 @@ export const Shoppingcart = () => {
         
           <div className='mt-4'>
           {cart.length > 0 ? (
-            <button onClick={clearCart} className="bg-gray-700 text-white py-1 px-3 rounded flex items-center">
+            <button onClick={clearCart} className="bg-gray-700 text-white py-1 px-3 rounded flex items-center hover:bg-red-700">
               Clear Cart 
               <IoTrashBinOutline className='ms-2'/> 
             </button>
