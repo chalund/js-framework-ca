@@ -5,7 +5,7 @@ import { IoTrashBinOutline } from "react-icons/io5";
 
 
 function Cart() {
-    const { cart, deleteProductFromCart, getCartTotal, addToCart, getTotalNumberOfItemsInCart } = useProductStore();
+    const { cart, deleteProductFromCart, getCartTotal, addToCart} = useProductStore();
 
 
     function handleAddItemInCart(id) {
@@ -89,7 +89,9 @@ function Cart() {
                                         <button onClick={() => handleAddItemInCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
                                     </div>
                                 </td>
-                                <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap">{(discountedPrice || price) * quantity}</td>
+                                <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap">
+                                    {((discountedPrice || price) * quantity).toFixed(2)}
+                                </td>
                                 <td className="px-4 py-4 whitespace-nowrap">
                                     <button onClick={() => handleRemoveItemFromCart(id)} className="bg-red-500 text-white font-bold py-3 px-2 rounded"><IoTrashBinOutline size={20} /></button>
                                 </td>

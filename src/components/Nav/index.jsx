@@ -2,9 +2,6 @@ import { NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import { useState } from "react";
-import { FiShoppingCart } from "react-icons/fi";
-
-
 import CartItems from "../CartItems";
 
 
@@ -12,18 +9,12 @@ import CartItems from "../CartItems";
 const NavLinks = () => {
   return (
     <>
-   <NavLink to="/" className="block mb-4 mt-2 md:mb-0 md:mt-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
+   <NavLink to="/" className="block uppercase mb-4 mt-2 md:mb-0 md:mt-0 md:mr-4 hover:underline hover:font-semibold cursor-pointer">
         Home
       </NavLink>
-      <NavLink to="/product" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
-        Product
-      </NavLink>
-      <NavLink to="/Contact" className="block mb-4 md:mb-0 md:mr-4 hover:text-purple-700 hover:underline hover:font-bold cursor-pointer">
+      <NavLink to="/Contact" className="block uppercase mb-4 md:mb-0 md:mr-4  hover:underline hover:font-semibold cursor-pointer">
         Contact
       </NavLink>
-
-
-
     </>
   );
 };
@@ -47,11 +38,7 @@ const Navbar = () => {
       </div>
      
       <div className="w-[40px] items-center">
-        <NavLink to="/Shoppingcart" className="hover:text-purple-700">
-          {/* <FiShoppingCart
-            size={20}
-            className="mt-1 md:ml-1 lg:ml-6  hover:scale-150"
-          /> */}
+        <NavLink to="/Shoppingcart" >
           <CartItems />
         </NavLink>
       </div>

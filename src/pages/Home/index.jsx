@@ -1,10 +1,8 @@
 
 import ProductList from "../../components/ProductList"
 import useProductStore from "../../components/store/products";
-import Cart from "../../components/Cart";
-import SearchBar from "../../components/SearchNew/SearchBar";
 import HeroSection from "../../components/HeroSection";
-import { NewProducts } from "../../components/NewProducts";
+
 
 
 

@@ -1,11 +1,17 @@
 import { useParams } from "react-router-dom";
-import useProductStore from "../store/products";
-import StarRate from "../StarRate";
-import { useEffect } from "react";
+
+
+import { useEffect, useState } from "react";
+import { ToastContainer , toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useProductStore from "../../components/store/products";
+import StarRate from "../../components/StarRate";
+
 
 function ProductDetails() {
     const { id } = useParams();
-    const { products, fetchProducts, addToCart } = useProductStore(); // Import the store and its methods
+    const { products, fetchProducts, cart, addToCart } = useProductStore(); // Import the store and its methods
+    const [quantity, setQuantity] = useState(1);
 
     // Fetch products on component mount
     useEffect(() => {
@@ -20,8 +26,32 @@ function ProductDetails() {
     }
     console.log(product)
 
+
+    const handleDecreaseQuantity = () => {
+        setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+    };
+
+    const handleIncreaseQuantity = () => {
+        setQuantity((prevQuantity) => prevQuantity + 1);
+    };
+
+    const onAddToCartClick = () => {
+        addToCart(product.id, quantity); // Pass product id and quantity to addToCart
+        toast.success('Product added to cart!', {
+            position: 'top-center',
+            hideProgressBar: true,
+            autoClose: 3000,
+        });
+    };
+    
+
+
+
+
+
     return (
         <div className="flex flex-col justify-center items-center h-screen">
+            <ToastContainer />
             <div className="bg-white dark:bg-gray-800 py-8 border rounded border-gray-500">
                 <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row -mx-4">
@@ -55,27 +85,41 @@ function ProductDetails() {
                                     )}
                                 </h3>
                             </div>
-                            <div className="py-3">
+                            <div className="flex items-center gap-3 mb-3">
+                                <p>Quantity</p>
+                                <div className="flex items-center">
+                                    <button onClick={handleDecreaseQuantity} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
+                                    <input
+                                        type="text"
+                                        className="inline-block w-10 h-8 text-center pointer-events-none"
+                                        size="2"
+                                        value={quantity}
+                                        readOnly
+                                    />
+                                    <button onClick={handleIncreaseQuantity} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+                                </div>
+                            </div>
+                            <div className="mt-4">
                                 {product.tags && product.tags.map((tag, index) => (
                                     <div key={index} className="inline-block border border-gray-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                                         {tag}
                                     </div>
                                 ))}
                             </div>
-                            <div className="py-3">
-                                <button onClick={() => addToCart(product.id)} className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                            <div className="mt-2">
+                                <button onClick={onAddToCartClick} className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
                                     Add to Cart
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div className="">
-                    <div class="flex-grow border-t border-gray-400 mt-4 p-2"></div>
-                        <h3 className="text-lg">Reviews</h3>
+                    <div className="flex-grow border-t border-gray-400 mt-4 p-2"></div>
+                        <h3 className="text-lg font-medium">Reviews</h3>
                         {product.reviews.length > 0 ? (
                             product.reviews.map((review, index) => (
-                                <div key={index}>
-                                    <div className="flex items-center">
+                                <div key={index} className="mt-4 bg-orange-300 px-6 py-3 rounded-md inline-block">
+                                    <div className="flex items-center ">
                                         <p className="mr-3">By {review.username}</p>
                                         {review.rating ? <StarRate rating={review.rating} size={20} /> : <StarRate size={20} />}
                                     </div>
@@ -93,3 +137,4 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
+

@@ -10,11 +10,11 @@ const CartItems = () => {
     <div className="relative">
       <FiShoppingCart
         size={20}
-        className="mt-1 md:ml-1 lg:ml-6  hover:scale-150"
+        className="mt-1"
       />
       {itemCount > 0 && ( // Render the circle only if there are items in the cart
         <div
-          className="absolute bottom-1 left-5 flex items-center justify-center w-6 h-6 bg-purple-600 text-white rounded-full text-xs"
+          className="absolute bottom-1 left-5 flex items-center justify-center w-6 h-6 bg-orange-200  rounded-full text-xs"
         >
           {itemCount}
         </div>
