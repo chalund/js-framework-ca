@@ -28,7 +28,7 @@ function Cart() {
             return (
                 <div className='space-x-3'>
                     <del className="text-gray-500">{price}</del>
-                    <span className="text-red-500">{discountedPrice}</span>
+                    <span className="text-red-700">{discountedPrice}</span>
                 </div>
             );
         } else {
@@ -42,7 +42,7 @@ function Cart() {
   
         return (
             <div>
-                <div className='mx-auto max-w-screen-lg py-2 flex w-full items-center justify-between flex-wrap"'>
+                <div className='mx-auto max-w-screen max-w-[1024px]'>
                     <div className='my-2 mx-2 sm:mx-6 lg:mx-8'>
                         <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:mx-8'>
                             <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'> 
@@ -52,7 +52,7 @@ function Cart() {
                     <thead className="bg-gray-50">
                         <tr>
                             <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Image</th>
-                            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
+                            <th scope="col" className="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
                             <th scope="col" className="hidden md:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                             <th scope="col" className="hidden lg:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
                             <th scope="col" className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
@@ -72,9 +72,15 @@ function Cart() {
                                         <dt className='sr-only'>Quantity</dt>
                                         <dd>
                                             <div className="flex items-center mt-2">
-                                                <button onClick={() => handleRemoveItemFromCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
-                                                <p className="mx-2">{quantity}</p>
-                                                <button onClick={() => handleAddItemInCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+                                                <button onClick={() => handleRemoveItemFromCart(id)} className="bg-purple-600 text-white font-bold py-1 px-3 rounded">-</button>
+                                                <input
+                                                    type="text"
+                                                    className="inline-block w-10 h-8 text-center pointer-events-none"
+                                                    size="2"
+                                                    value={quantity}
+                                                    readOnly
+                                                />
+                                                <button onClick={() => handleAddItemInCart(id)} className="bg-purple-600 text-white font-bold py-1 px-3 rounded">+</button>
                                             </div>
                                         </dd>
                                     </dl>
@@ -84,16 +90,22 @@ function Cart() {
                                 <td className="hidden md:table-cell px-4 py-4 ">{handlePrice(price, discountedPrice)}</td>
                                 <td className="hidden lg:table-cell px-4 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
-                                        <button onClick={() => handleRemoveItemFromCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">-</button>
-                                        <p className="mx-2">{quantity}</p>
-                                        <button onClick={() => handleAddItemInCart(id)} className="bg-orange-500 text-white font-bold py-1 px-3 rounded">+</button>
+                                        <button onClick={() => handleRemoveItemFromCart(id)} className="bg-purple-600 text-white font-bold py-1 px-3 rounded">-</button>
+                                        <input
+                                        type="text"
+                                        className="inline-block w-10 h-8 text-center pointer-events-none"
+                                        size="2"
+                                        value={quantity}
+                                        readOnly
+                                    />
+                                        <button onClick={() => handleAddItemInCart(id)} className="bg-purple-600 text-white font-bold py-1 px-3 rounded">+</button>
                                     </div>
                                 </td>
                                 <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap">
                                     {((discountedPrice || price) * quantity).toFixed(2)}
                                 </td>
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    <button onClick={() => handleRemoveItemFromCart(id)} className="bg-red-500 text-white font-bold py-3 px-2 rounded"><IoTrashBinOutline size={20} /></button>
+                                    <button onClick={() => handleRemoveItemFromCart(id)} className="font-bold py-3 px-2 hover:text-red-700"><IoTrashBinOutline size={30} /></button>
                                 </td>
                             </tr>
                         ))}
