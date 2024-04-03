@@ -6,7 +6,7 @@ const Logo = () => {
       <div className='flex items-center'>
           <Link to="/" className='flex items-center'>
               <FcProcess size={40} />
-              <h1 className='ms-2 text-2xl  hover:text-purple-600 hover:font-bold'>ReBuy</h1>
+              <h1 className='ms-2 text-2xl hover:font-semibold'>ReBuy</h1>
           </Link>
       </div>
     )

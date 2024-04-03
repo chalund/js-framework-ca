@@ -154,7 +154,7 @@ export const ContactForm = () => {
           <div className="mx-auto flex items-center justify-center">
             <button
                 type="submit"
-                className="hover:shadow-form rounded-md bg-purple-600 py-3 px-8 text-base font-semibold text-white outline-none"
+                className="hover:shadow-form rounded-md bg-fuchsia-00 py-3 px-8 text-base font-semibold text-white outline-none"
             >
                 Send message
             </button>
