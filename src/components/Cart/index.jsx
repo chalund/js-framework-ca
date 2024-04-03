@@ -106,7 +106,7 @@ function Cart() {
                                     {((discountedPrice || price) * quantity).toFixed(2)}
                                 </td>
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    <button onClick={() => handleRemoveItemFromCart(id)} className="font-bold py-3 px-2 text-gray-700 hover:text-red-700"><IoTrashBinOutline size={30} /></button>
+                                    <button onClick={() => handleRemoveItemFromCart(id)} className="font-bold py-3 px-2 text-gray-00 hover:text-fuchsia-500"><IoTrashBinOutline size={30} /></button>
                                 </td>
                             </tr>
                         ))}

@@ -21,7 +21,7 @@ export const Shoppingcart = () => {
         
           <div className='mt-4'>
           {cart.length > 0 ? (
-            <button onClick={clearCart} className="bg-gray-700 text-white py-1 px-3 rounded flex items-center hover:bg-red-700">
+            <button onClick={clearCart} className="bg-gray-700 text-white py-1 px-3 rounded flex items-center hover:bg-fuchsia-500">
               Clear Cart 
               <IoTrashBinOutline className='ms-2'/> 
             </button>
@@ -39,7 +39,7 @@ export const Shoppingcart = () => {
       <div className='flex justify-center'>
       {cart.length > 0 ? (
           <Link to={`/checkout`}>
-            <button className="bg-purple-600 text-white text-xl mt-6 py-2 px-10 rounded">Checkout </button>
+            <button className="bg-purple-600 text-white text-xl mt-6 py-2 px-10 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 cursor-pointer">Checkout </button>
           </Link>
         ) : (
           <Link to={`/`}>
