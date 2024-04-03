@@ -4,12 +4,13 @@ import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useProductStore from "../../components/store/products";
 import StarRate from "../../components/StarRate";
+import { calculateDiscountPercentage } from "../../components/Discount";
 
 
 
 function ProductDetails() {
     const { id } = useParams();
-    const { products, fetchProducts, cart, addToCart } = useProductStore(); 
+    const { products, fetchProducts, cart, addToCart, discountedPrice } = useProductStore(); 
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
@@ -38,6 +39,10 @@ function ProductDetails() {
             autoClose: 3000,
         });
     };
+
+
+    const discountPercentage = calculateDiscountPercentage(product.price, product.discountedPrice);
+
     
     return (
         <div className="flex flex-col justify-center items-center min-h-screen">
@@ -51,11 +56,16 @@ function ProductDetails() {
             </div>
             <div className="mx-auto px-4">
                 <div className="flex flex-col sm:flex-row">
-                    <div className="mb-4  px-4">
-                        <div className="h-[400px] w-[300px] rounded-lg bg-gray-300 dark:bg-gray-700"> 
-                            <img className="w-full h-full object-cover border rounded border-gray-200 shadow-md" src={product.image?.url} alt="" />
-                        </div>
-                    </div>
+                <div className="mb-4 px-4 relative">
+    <div className="h-[400px] w-[300px] rounded-lg bg-gray-300 dark:bg-gray-700"> 
+        <img className="w-full h-full object-cover border rounded border-gray-200 shadow-md" src={product.image?.url} alt="" />
+        {discountPercentage && (
+            <div className="absolute top-3 left-7 z-10 bg-purple-600 text-white px-2 py-1 rounded">
+                {discountPercentage}% OFF
+            </div>
+        )}
+    </div>
+</div>
                     <div className="md:flex-1 px-4">
                             <h1 className="text-2xl font-bold">{product.title}</h1>
                          
@@ -102,7 +112,7 @@ function ProductDetails() {
                                 ))}
                             </div>
                             <div className="mt-2 md:mt-10">
-                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 to-fuchsia-500  font-semibold py-2 px-4 rounded">
+                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 hover:text-black  font-semibold py-2 px-4 rounded">
                                     Add to Cart
                                 </button>
                             </div>

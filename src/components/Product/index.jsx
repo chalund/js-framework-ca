@@ -9,6 +9,8 @@ function Product ({product: {id, image, title, price, discountedPrice, rating}, 
         onAddToCartClick(id)
     }
 
+
+
     return (
     <div className="flex flex-wrap justify-center">
         <div key={id} className="max-w-sm md:max-w-md lg:max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5 hover:shadow-md transition-transform transform-gpu hover:scale-105">
