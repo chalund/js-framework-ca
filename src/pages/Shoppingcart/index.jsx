@@ -14,7 +14,7 @@ export const Shoppingcart = () => {
 
   return (
     <div className='mx-auto max-w-screen '>
-      <div className='mx-auto max-w-screen-md flex justify-evenly my-10'>
+      <div className='mx-auto max-w-screen-md flex justify-evenly mt-32'>
         <div className='mx-auto flex items-center flex-col'>
           <h1 className='text-3xl mr-2'>Shoppingcart</h1>
           <p>(items: {getTotalNumberOfItemsInCart()} )</p>
