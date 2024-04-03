@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useProductStore from "../../components/store/products";
 import StarRate from "../../components/StarRate";
+
 
 
 function ProductDetails() {
@@ -40,8 +41,14 @@ function ProductDetails() {
     
     return (
         <div className="flex flex-col justify-center items-center min-h-screen">
+
         <ToastContainer />
-        <div className="bg-white dark:bg-gray-800 py-8 border rounded border-gray-200 shadow-md max-w-[800px]">
+         
+        <div className="bg-white dark:bg-gray-800 py-8 border rounded border-gray-200 shadow-md max-w-[800px] p-4">
+           {/* Link to Products */}
+           <div className="text-left mb-4 ms-8">
+                <Link to={`/`} className="underline text-gray-700 hover:text-purple-600">Back to: Products</Link>
+            </div>
             <div className="mx-auto px-4">
                 <div className="flex flex-col sm:flex-row">
                     <div className="mb-4  px-4">
@@ -95,7 +102,7 @@ function ProductDetails() {
                                 ))}
                             </div>
                             <div className="mt-2 md:mt-10">
-                                <button onClick={onAddToCartClick} className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 to-fuchsia-500  font-semibold py-2 px-4 rounded">
                                     Add to Cart
                                 </button>
                             </div>

@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="mx-auto max-w-screen">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <ProductList />
     </div>
   )
