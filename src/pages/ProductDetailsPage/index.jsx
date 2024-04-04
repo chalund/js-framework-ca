@@ -112,7 +112,7 @@ function ProductDetails() {
                                 ))}
                             </div>
                             <div className="mt-2 md:mt-10">
-                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 duration-300 to-fuchsia-500 font-semibold py-2 px-4 rounded">
+                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 duration-300 to-fuchsia-500 font-semibold py-2 px-3 rounded">
                                     Add to Cart
                                 </button>
                             </div>
@@ -123,7 +123,7 @@ function ProductDetails() {
                 <div className="flex flex-wrap">
                     {product.reviews.length > 0 ? (
                         product.reviews.map((review, index) => (
-                            <div key={index} className="bg-gradient-to-r from-fuchsia-500 to-purple-600  px-6 py-3 rounded-md mr-3 mb-3">
+                            <div key={index} className="bg-gradient-to-r from-orange-200 to-fuchsia-600  px-6 py-3 rounded-md mr-3 mb-3">
                                 <div className="flex items-center ">
                                     <p className="mr-3 font-semibold">{review.username}</p>
                                     {review.rating ? <StarRate rating={review.rating} size={20} /> : <StarRate size={20} />}

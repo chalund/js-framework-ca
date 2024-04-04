@@ -2,7 +2,7 @@ import { ContactForm } from '../../components/ContactForm'
 
 const Contact = () => {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex sm:items-center justify-center h-screen">
       <ContactForm />
     </div>
   )
