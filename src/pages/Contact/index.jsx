@@ -1,9 +1,9 @@
-import React from 'react'
+import { ContactForm } from '../../components/ContactForm'
 
 const Contact = () => {
   return (
-    <div>
-      Contacts
+    <div className="flex items-center justify-center h-screen">
+      <ContactForm />
     </div>
   )
 }

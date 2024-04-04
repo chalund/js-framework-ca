@@ -1,10 +1,16 @@
-import React from 'react'
+import ProductList from "../../components/ProductList"
+import useProductStore from "../../components/store/products";
+import HeroSection from "../../components/HeroSection";
+
 
 const Home = () => {
+  const {cart, clearCart, getTotalNumberOfItemsInCart} = useProductStore(); 
+  console.log(cart)
+
   return (
-    <div>
-      <h1>Home</h1>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt sunt voluptates, aut placeat necessitatibus recusandae officia facere, ab, cumque molestias eaque explicabo quae libero. A earum distinctio laboriosam quam animi!</p>
+    <div className="mx-auto max-w-screen">
+      <HeroSection />
+      <ProductList />
     </div>
   )
 }
