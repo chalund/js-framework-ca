@@ -34,7 +34,7 @@ export const Shoppingcart = () => {
         </div>
       </div>
 
-      <div className='mx-auto max-w-screen-md py-1'>
+      <div className='mx-auto max-w-screen-md py-1 px-2'>
         {cart.length > 0 && (
           <Link to={'/'} className='underline text-gray-700 hover:text-purple-600'>Back to Shopping</Link>
         )}
@@ -45,7 +45,7 @@ export const Shoppingcart = () => {
       <div className='flex justify-center'>
         {cart.length > 0 ? (
           <Link to={`/checkout`}>
-            <button className="bg-purple-600 text-white text-xl mt-6 py-2 px-10 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 cursor-pointer">Checkout</button>
+            <button className="bg-purple-600 text-white text-xl mt-6 py-2 px-10 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 duration-300 cursor-pointer">Checkout</button>
           </Link>
         ) : (
           <Link to={`/`}>

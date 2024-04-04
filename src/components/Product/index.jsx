@@ -52,9 +52,9 @@ function Product ({product: {id, image, title, price, discountedPrice, rating}, 
              
               
                 <div className="flex justify-start items-center mt-auto h-full">
-                    <button onClick={handleButtonOnClick} className="bg-purple-600 text-white font-bold py-1 px-3 rounded mr-3 hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 " style={{ height: '2rem' }}><FaShoppingCart /></button>
+                    <button onClick={handleButtonOnClick} className="bg-purple-600 text-white font-semibold py-1 px-3 rounded mr-3 hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 " style={{ height: '2rem' }}><FaShoppingCart /></button>
                     <Link to={`/product/${id}`}>
-                        <button className="bg-purple-600 text-white font-bold py-1 px-3 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 " style={{ height: '2rem' }}>View Product</button>
+                        <button className="bg-purple-600 text-white font-semibold py-1 px-3 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 " style={{ height: '2rem' }}>View Product</button>
                     </Link>
                 </div>
             </div>

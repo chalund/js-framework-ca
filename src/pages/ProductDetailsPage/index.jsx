@@ -112,7 +112,7 @@ function ProductDetails() {
                                 ))}
                             </div>
                             <div className="mt-2 md:mt-10">
-                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 hover:text-black  font-semibold py-2 px-4 rounded">
+                                <button onClick={onAddToCartClick} className="bg-purple-600 text-white hover:bg-gradient-to-r from-orange-300 duration-300 to-fuchsia-500 font-semibold py-2 px-4 rounded">
                                     Add to Cart
                                 </button>
                             </div>
