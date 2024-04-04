@@ -39,6 +39,8 @@ export default function ProductList() {
         return <div>Loading...</div>;
     }
 
+    console.log(products)
+
     return (
         <div className="flex flex-col items-center">
             <div className="mx-auto bg-purple-500 w-full max-w-[990px] mt-10 my-6 p-8 flex flex-col items-center rounded">

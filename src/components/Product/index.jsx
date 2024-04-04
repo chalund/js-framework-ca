@@ -32,7 +32,7 @@ function Product ({product: {id, image, title, price, discountedPrice, rating}, 
 
             </div>
             <div className="p-5 flex flex-col" style={{ width: '300px'}}>
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900">{title}</h3>
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900" style={{ maxWidth: '240px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</h3>
 
                 <div className="flex items-center mb-3">
                     {rating ? <StarRate rating={rating} size={20} /> : <StarRate size={20} />}      

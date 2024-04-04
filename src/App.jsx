@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"
 import { Shoppingcart } from "./pages/Shoppingcart"
 import Checkout from "./pages/Success"
 import ProductDetails from "./pages/ProductDetailsPage"
+import ErrorPage from "./pages/ErrorPage"
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="shoppingCart" element={<Shoppingcart />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </Router>

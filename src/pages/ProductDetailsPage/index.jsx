@@ -120,12 +120,12 @@ function ProductDetails() {
                     </div>
                     <div className="flex-grow border-t border-gray-400 mt-4 p-2"></div>
                 <h3 className="text-lg font-medium">Reviews</h3>
-                <div className="flex ">
+                <div className="flex flex-wrap">
                     {product.reviews.length > 0 ? (
                         product.reviews.map((review, index) => (
-                            <div key={index} className="bg-gradient-to-r from-orange-300 to-fuchsia-500 px-6 py-3 rounded-md">
+                            <div key={index} className="bg-gradient-to-r from-fuchsia-500 to-purple-600  px-6 py-3 rounded-md mr-3 mb-3">
                                 <div className="flex items-center ">
-                                    <p className="mr-3">By {review.username}</p>
+                                    <p className="mr-3 font-semibold">{review.username}</p>
                                     {review.rating ? <StarRate rating={review.rating} size={20} /> : <StarRate size={20} />}
                                 </div>
                                 <p>{review.description}</p>
