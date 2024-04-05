@@ -1,12 +1,10 @@
 import React from 'react'
 import useProductStore from '../store/products'
-import { Link } from 'react-router-dom';
 import { IoTrashBinOutline } from "react-icons/io5";
 
 
 function Cart() {
     const { cart, deleteProductFromCart, getCartTotal, addToCart} = useProductStore();
-
 
     function handleAddItemInCart(id) {
         addToCart(id);
@@ -15,10 +13,8 @@ function Cart() {
     function handleRemoveItemFromCart(id) {
         const product = cart.find(item => item.id === id);
         if (product && product.quantity > 1) {
-            // If the product quantity is greater than 1, decrement the quantity by 1
             deleteProductFromCart(id);
         } else {
-            // If the product quantity is 1 or less, remove the product from the cart
             deleteProductFromCart(id);
         }
     }
@@ -37,9 +33,6 @@ function Cart() {
     }
 
 
-
-
-  
     return (
         <div className='mx-auto max-w-screen max-w-[1024px]'>
             {cart.length === 0 ? (
@@ -50,7 +43,7 @@ function Cart() {
                 <div className='inline-block min-w-full py-2 align-middle px-2 md:px-6 lg:mx-8'>
                     <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg'> 
                         <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
+                            <thead className="bg-gray-50">
                         <tr>
                             <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Image</th>
                             <th scope="col" className="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
@@ -59,8 +52,8 @@ function Cart() {
                             <th scope="col" className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
                             <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
                         {cart.map(({ id, image, title, price, discountedPrice, quantity }) => (
                             <tr key={`cart-${id}`}>
                                 <td className="px-6 py-4  ">
@@ -68,7 +61,6 @@ function Cart() {
                                 </td>
                                 <td className="w-full sm:w-auto sm:w-px-4 py-4 whitespace-nowrap">
                                     {title}
-
                                     <dl className='lg:hidden'>
                                         <dt className='sr-only'>Quantity</dt>
                                         <dd>
@@ -85,8 +77,6 @@ function Cart() {
                                             </div>
                                         </dd>
                                     </dl>
-                                  
-                               
                                 </td>
                                 <td className="hidden md:table-cell px-4 py-4 ">{handlePrice(price, discountedPrice)}</td>
                                 <td className="hidden lg:table-cell px-4 py-4 whitespace-nowrap">
@@ -98,7 +88,7 @@ function Cart() {
                                         size="2"
                                         value={quantity}
                                         readOnly
-                                    />
+                                        />
                                         <button onClick={() => handleAddItemInCart(id)} className="bg-purple-600 text-white font-bold py-1 px-3 rounded">+</button>
                                     </div>
                                 </td>
@@ -110,16 +100,13 @@ function Cart() {
                                 </td>
                             </tr>
                         ))}
-                             <tr>
-                        
-                            <td colSpan={6} className=" py-4 whitespace-nowrap text-right">
-                                <p className="text-xl font-medium mr-4">Total: ${getCartTotal().toFixed(2)}</p>
-                            </td>
-                        </tr> 
-                   
-                    </tbody>
-               
-                    </table>
+                            <tr>
+                                <td colSpan={6} className=" py-4 whitespace-nowrap text-right">
+                                    <p className="text-xl font-medium mr-4">Total: ${getCartTotal().toFixed(2)}</p>
+                                </td>
+                            </tr> 
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             )}
