@@ -14,7 +14,7 @@ export const Shoppingcart = () => {
 
   return (
     <div className='mx-auto max-w-screen'>
-      <div className='mx-auto max-w-screen-md flex justify-evenly mt-32'>
+      <div className='mx-auto max-w-screen-md flex justify-evenly mt-10'>
         <div className='mx-auto flex items-center flex-col'>
           <h1 className='text-3xl mr-2'>Shoppingcart</h1>
           <p>(items: {getTotalNumberOfItemsInCart()} )</p>
@@ -42,7 +42,7 @@ export const Shoppingcart = () => {
 
       <Cart cart={cartItems} />
 
-      <div className='flex justify-center'>
+      <div className='flex justify-center mb-10'>
         {cart.length > 0 ? (
           <Link to={`/checkout`}>
             <button className="bg-purple-600 text-white text-xl mt-6 py-2 px-10 rounded hover:bg-gradient-to-r from-orange-300 to-fuchsia-500 duration-300 cursor-pointer">Checkout</button>
