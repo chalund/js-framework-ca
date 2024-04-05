@@ -8,7 +8,7 @@ import { calculateDiscountPercentage } from "../../components/Discount";
 
 
 
-function ProductDetails() {
+export function ProductDetails() {
     const { id } = useParams();
     const { products, fetchProducts, cart, addToCart, discountedPrice } = useProductStore(); 
     const [quantity, setQuantity] = useState(1);
@@ -140,6 +140,3 @@ function ProductDetails() {
         </div>
     );
 }
-
-export default ProductDetails;
-

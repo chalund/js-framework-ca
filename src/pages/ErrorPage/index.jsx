@@ -1,6 +1,6 @@
 import { TfiFaceSad } from "react-icons/tfi";
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
   return (
     <div className='flex flex-col justify-center items-center mt-32 text-gray-700'>
         <TfiFaceSad size={64} className="mb-3" />
@@ -11,4 +11,3 @@ const ErrorPage = () => {
   )
 }
 
-export default ErrorPage

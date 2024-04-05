@@ -1,13 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Layout } from "./components/Layout"
-import Home from "./pages/Home"
-
-import Contact from "./pages/Contact"
-import { Shoppingcart } from "./pages/Shoppingcart"
-import Checkout from "./pages/Success"
-import ProductDetails from "./pages/ProductDetailsPage"
-import ErrorPage from "./pages/ErrorPage"
-
+import { Home, Contact, ErrorPage, ProductDetails, Shoppingcart, Checkout} from "./pages"
 
 
 function App() {

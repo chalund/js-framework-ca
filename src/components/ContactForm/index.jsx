@@ -48,15 +48,8 @@ export const ContactForm = () => {
     e.preventDefault();
 
 
-    //not sure if this should be there? gives an error
-    // fetch('https://v2.api.noroff.dev/online-shop', {
-    //     method: 'POST',
-    //     body: JSON.stringify(formData),
-    //   });
-
-  
     if (validateForm()) {
-      // Submit the form data
+      // Submit the form data, console.log to data to meet form validation
       console.log('Form submitted:', formData);
 
       setAlert('Your message has been sent successfully!');

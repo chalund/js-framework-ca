@@ -34,6 +34,14 @@ npm install
 npm start
 ```
 
+### Run the application
+1. Start the development server
+````
+npm run dev
+````
+2. View in Browser
+Open the provided localhost link in your preferred web browser
+
 ## Contact
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://pe.linkedin.com/in/charlotte-lund-48419b249/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/chalund)

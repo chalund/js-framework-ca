@@ -5,7 +5,6 @@ import { useState } from "react";
 import CartItems from "../CartItems";
 
 
-
 const NavLinks = () => {
   return (
     <>
@@ -29,34 +28,29 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="flex jusify-between">
-      <div className="hidden md:flex mr-10">
-
-      </div>      
-      <div className="hidden mt-1 md:flex">
-        <NavLinks />
+      <nav className="flex jusify-between">    
+        <div className="hidden mt-1 md:flex">
+          <NavLinks />
+        </div>
+        <div className="w-[40px] items-center">
+          <NavLink to="/Shoppingcart" >
+            <CartItems />
+          </NavLink>
+        </div>
+        <div className="sm: ms-2 md:hidden">
+          <button onClick={toggleNavbar}>
+          {isOpen ? <IoClose size={30}/> : <IoIosMenu size={30}/> }
+          </button>
+        </div>
+      </nav>
+      {isOpen && (
+        <div className="flex basis-full flex-col items-center md:hidden">
+            <div className="mt-2">
       </div>
-     
-      <div className="w-[40px] items-center">
-        <NavLink to="/Shoppingcart" >
-          <CartItems />
-        </NavLink>
-      </div>
-      <div className="sm: ms-2 md:hidden">
-        <button onClick={toggleNavbar}>
-        {isOpen ? <IoClose size={30}/> : <IoIosMenu size={30}/> }
-        </button>
-      </div>
-    </nav>
-    {isOpen && (
-      <div className="flex basis-full flex-col items-center md:hidden">
-          <div className="mt-2">
-    </div>
-        <NavLinks />
-      </div>
-    )}
+          <NavLinks />
+        </div>
+      )}
     </>
-
   )
 }
 
