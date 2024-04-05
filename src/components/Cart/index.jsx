@@ -40,13 +40,13 @@ function Cart() {
                     <p className="text-lg font-semibold">You have no items in your cart.</p>
                 </div>
             ) : (
-                <div className='inline-block min-w-full py-2 align-middle px-2 md:px-6 lg:mx-8'>
+                <div className='inline-block min-w-full py-2 align-middle sm:px-2 md:px-8 '>
                     <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg'> 
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                         <tr>
                             <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Image</th>
-                            <th scope="col" className="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
+                            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Product Title</th>
                             <th scope="col" className="hidden md:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                             <th scope="col" className="hidden lg:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
                             <th scope="col" className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
@@ -59,7 +59,7 @@ function Cart() {
                                 <td className="px-6 py-4  ">
                                     <img src={image.url} alt={image.alt} className="w-20 h-20" />
                                 </td>
-                                <td className="w-full sm:w-auto sm:w-px-4 py-4 whitespace-nowrap">
+                                <td className="sm:w-auto px-4 py-4 whitespace-nowrap">
                                     {title}
                                     <dl className='lg:hidden'>
                                         <dt className='sr-only'>Quantity</dt>
