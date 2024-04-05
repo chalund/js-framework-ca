@@ -1,7 +1,7 @@
-
+# ReBuy e-commerce Store 
 ![Screenshot](./src/assets/images/rebuy-homepage.png)
 
-# ReBuy e-commerce Store 
+## Description
 [Rebuy](https://rebuy-store.netlify.app/) is a modern e-commerce web application built as a course assignment for JavaScript frameworks at Noroff. It is developed using ReactVite and Tailwind CSS, providing users with a seamless shopping experience to browse and purchase gadgets.
 
 ### Features
@@ -27,7 +27,7 @@ https://github.com/chalund/js-framework-ca.git
 2. Install NPM packages
 ```
 npm install
-``
+```
 
 3. Start the project
 ```
