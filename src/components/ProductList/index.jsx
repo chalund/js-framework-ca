@@ -9,10 +9,9 @@ export default function ProductList() {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
   
-
     useEffect(() => {
         fetchProducts();
-    }, []); // Empty dependency array to fetch products only once on mount
+    }, []); 
 
     useEffect(() => {
         if (products) {
@@ -38,8 +37,6 @@ export default function ProductList() {
     if (!products) {
         return <div>Loading...</div>;
     }
-
-    console.log(products)
 
     return (
         <div className="flex flex-col items-center">

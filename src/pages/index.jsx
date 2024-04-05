@@ -1,1 +1,6 @@
-export { Home } from "./Home"
+export { Home } from "./HomePage"
+export { Contact } from "./ContactPage"
+export { ErrorPage} from "./ErrorPage"
+export { ProductDetails } from "./ProductDetailsPage"
+export { Shoppingcart } from "./ShoppingcartPage"
+export { Checkout } from "./SuccessPage"

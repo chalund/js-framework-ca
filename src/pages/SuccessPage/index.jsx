@@ -1,12 +1,10 @@
-
 import { useEffect } from 'react';
 import useProductStore from '../../components/store/products';
 import { Link } from 'react-router-dom';
 import { FaRegCheckCircle } from "react-icons/fa";
 
 
-
-const Checkout = () => {
+export const Checkout = () => {
   const { clearCart } = useProductStore();
 
   useEffect(() => {
@@ -27,5 +25,3 @@ const Checkout = () => {
     </div>
   );
 };
-
-export default Checkout;

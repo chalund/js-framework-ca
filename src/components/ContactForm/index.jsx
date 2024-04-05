@@ -48,15 +48,8 @@ export const ContactForm = () => {
     e.preventDefault();
 
 
-    //not sure if this should be there? gives an error
-    // fetch('https://v2.api.noroff.dev/online-shop', {
-    //     method: 'POST',
-    //     body: JSON.stringify(formData),
-    //   });
-
-  
     if (validateForm()) {
-      // Submit the form data
+      // Submit the form data, console.log to data to meet form validation
       console.log('Form submitted:', formData);
 
       setAlert('Your message has been sent successfully!');
@@ -114,7 +107,7 @@ export const ContactForm = () => {
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-purple-600  focus:ring-0 focus:shadow-md ${errors.name && 'border-red-700'}`}
+                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium   focus:border-purple-600  focus:ring-0 focus:shadow-md ${errors.name && 'border-red-700'}`}
                   />
                 {errors.name && <p className="text-red-700 text-sm mt-1">{errors.name}</p>}
               </div>
@@ -128,7 +121,7 @@ export const ContactForm = () => {
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className={`w-full rounded-md border border-[#e0e0e0] bg-gray-50 py2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-purple-600 focus:ring-0 ${errors.name && 'border-red-700'}`}
+                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py2 px-3 text-base font-medium  focus:border-purple-600 focus:ring-0 ${errors.name && 'border-red-700'}`}
                 />
                 {errors.subject && <p className="text-red-700 text-sm mt-1">{errors.subject}</p>}
               </div>
@@ -142,7 +135,7 @@ export const ContactForm = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-purple-600  focus:ring-0 ${errors.name && 'border-red-700'}`}
+                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium  focus:border-purple-600  focus:ring-0 ${errors.name && 'border-red-700'}`}
                 />
                 {errors.email && <p className="text-red-700 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -156,7 +149,7 @@ export const ContactForm = () => {
                   placeholder="Type your message.."
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-2 px-3 text-base font-medium text-[#6B7280] border-transparent focus:border-purple-600  focus:ring-0 ${errors.message && 'border-red-700'}`}
+                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium focus:border-purple-600  focus:ring-0 ${errors.message && 'border-red-700'}`}
                 />
                 {errors.message && <p className="text-red-700 text-sm mt-1">{errors.message}</p>}
               </div>

@@ -7,7 +7,7 @@ export function useFetch(url) {
 
     useEffect(() => {
         async function fetchData() {
-            console.log('going to fetch the data')
+
             try {
                 setIsLoading(true);
                 setIsError(false);
@@ -16,18 +16,18 @@ export function useFetch(url) {
                 const json = await response.json();
                 
                 setData(json.data);
-                console.log(json)
+            
             } catch (error) {
-                console.log(error)
                 setIsError(true);
                 throw new Error('Error fetching data');
+
             } finally {
                 setIsLoading(false);
             }
         }
 
         fetchData();
-    }, []);
+    }, [url]);
 
     return {
         data,

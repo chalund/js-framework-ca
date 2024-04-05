@@ -20,13 +20,13 @@ const loadCartFromLocalStorage = () => {
 
 const useProductStore = create((set, get) => ({
     products: loadProductsFromLocalStorage(),
-    cart: loadCartFromLocalStorage(), // Load cart from localStorage
+    cart: loadCartFromLocalStorage(), 
     cartTotal: 0,
 
     fetchProducts: async () => {
         const response = await fetch('https://v2.api.noroff.dev/online-shop'); 
         const json = await response.json();
-        set({ products: json.data }); // Update products in the store
+        set({ products: json.data }); 
         saveProductsToLocalStorage(json.data);
     },
 
@@ -43,20 +43,20 @@ const useProductStore = create((set, get) => ({
             const updatedCart = [...state.cart];
     
             if (productInCartIndex === -1) {
-                product.quantity = quantity; // Set the quantity to the provided quantity
+                product.quantity = quantity; 
                 updatedCart.push(product);
             } else {
-                updatedCart[productInCartIndex].quantity += quantity; // Increase the quantity
+                updatedCart[productInCartIndex].quantity += quantity; 
             }
     
-            saveCartToLocalStorage(updatedCart); // Save updated cart to localStorage
+            saveCartToLocalStorage(updatedCart); 
     
             return { ...state, cart: updatedCart };
         });
     },
     
     clearCart: () => set(() => {
-        saveCartToLocalStorage([]); // Clear cart in localStorage
+        saveCartToLocalStorage([]); 
         return { cart: [] };
     }),
     deleteProductFromCart: (id) => set((state) => {
