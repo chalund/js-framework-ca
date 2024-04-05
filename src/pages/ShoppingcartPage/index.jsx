@@ -18,7 +18,7 @@ export const Shoppingcart = () => {
         <div className='mx-auto flex items-center flex-col'>
           <h1 className='text-3xl mr-2'>Shoppingcart</h1>
           <p>(items: {getTotalNumberOfItemsInCart()} )</p>
-          <div className='mt-4'>
+          <div className='py-4'>
             {cart.length > 0 ? (
               <button onClick={clearCart} className="bg-gray-700 text-white py-1 px-3 rounded flex items-center hover:text-fuchsia-500">
                 Clear Cart 
@@ -39,9 +39,7 @@ export const Shoppingcart = () => {
           <Link to={'/'} className='underline text-gray-700 hover:text-purple-600'>Back to Shopping</Link>
         )}
       </div>
-
       <Cart cart={cartItems} />
-
       <div className='flex justify-center mb-10'>
         {cart.length > 0 ? (
           <Link to={`/checkout`}>
