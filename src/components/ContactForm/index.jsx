@@ -103,6 +103,7 @@ export const ContactForm = () => {
                 </label>
                 <input
                   type="text"
+                  id='name'
                   name="name"
                   placeholder="Full Name"
                   value={formData.name}
@@ -117,6 +118,7 @@ export const ContactForm = () => {
                 </label>
                 <input
                   type="text"
+                  id='subject'
                   name="subject"
                   placeholder="Subject"
                   value={formData.subject}
@@ -131,6 +133,7 @@ export const ContactForm = () => {
                 </label>
                 <input
                   type="email"
+                  id='email'
                   name="email"
                   placeholder="Email"
                   value={formData.email}
@@ -146,6 +149,7 @@ export const ContactForm = () => {
                 <textarea
                   rows={4}
                   name="message"
+                  id='message'
                   placeholder="Type your message.."
                   value={formData.message}
                   onChange={handleChange}
