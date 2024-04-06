@@ -8,7 +8,7 @@ import Pagination from "../Pagination";
 export default function ProductList() {
     const { products, fetchProducts, addToCart, error } = useProductStore();
     const [searchTerm, setSearchTerm] = useState('');
-    const [currentPage, setCurrentPage] = useState(1); // Ensure currentPage is initialized properly
+    const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(9);
     const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -80,7 +80,7 @@ export default function ProductList() {
             <Pagination
                 productsPerPage={productsPerPage}
                 totalProducts={filteredProducts.length}
-                currentPage={currentPage} // Ensure currentPage is passed as a prop
+                currentPage={currentPage}
                 paginate={paginate}
             />
         </div>
