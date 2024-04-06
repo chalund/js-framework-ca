@@ -11,8 +11,8 @@ function Product ({product: {id, image, title, price, discountedPrice, rating}, 
 
     return (
     <div className="flex flex-wrap justify-center">
-        <div key={id} className="max-w-sm md:max-w-md lg:max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5 hover:shadow-md transition-transform transform-gpu hover:scale-105">
-            <div style={{ position: 'relative', width: '300px', height: '300px' }}>
+        <div key={id} className="max-w-sm md:max-w-md lg:max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2 hover:shadow-md transition-transform transform-gpu hover:scale-105">
+            <div style={{ position: 'relative', width: '280px', height: '200px' }}>
                 <Link to={`/product/${id}`} style={{ display: 'block', width: '100%', height: '100%' }}>
                     <img className="rounded-t-lg object-cover w-full h-full" src={image.url} alt={title} />
                 </Link>  
@@ -26,7 +26,7 @@ function Product ({product: {id, image, title, price, discountedPrice, rating}, 
                 </div>
                 )}
             </div>
-            <div className="p-5 flex flex-col" style={{ width: '300px'}}>
+            <div className="p-4 flex flex-col" style={{ width: '280px'}}>
                 <h3 className="text-2xl font-bold tracking-tight text-gray-900" style={{ maxWidth: '240px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</h3>
                 <div className="flex items-center mb-3">
                     {rating ? <StarRate rating={rating} size={20} /> : <StarRate size={20} />}      
