@@ -76,15 +76,20 @@ export const ContactForm = () => {
       });
   };
 
-  const sendMessageClick = () => {
-    if (validateForm()) {
-      toast.success('Message is sent!', {
-        position: 'top-center',
-        hideProgressBar: true,
-        autoClose: 3000,
-      });
+  const sendMessageClick = async () => {
+    try {
+      if (validateForm()) {
+        await toast.success('Message is sent!', {
+          position: 'top-center',
+          hideProgressBar: true,
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      console.error('Error while sending message:', error);
     }
   };
+  
   
   
   return (
@@ -97,66 +102,74 @@ export const ContactForm = () => {
         <div className="flex items-center justify-center">
           <div className="mx-auto w-full max-w-[300px]">
             <form onSubmit={handleSubmit}>
-              <div className="mb-1">
-                <label htmlFor="name" className="mb-1 block text-base font-medium text-gray-800">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id='name'
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium   focus:border-purple-600  focus:ring-0 focus:shadow-md ${errors.name && 'border-red-700'}`}
-                  />
-                {errors.name && <p className="text-red-700 text-sm mt-1">{errors.name}</p>}
-              </div>
-              <div className='mb-1'>
-                <label htmlFor="subject" className="mb-1 block text-base font-medium text-gray-800">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id='subject'
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py2 px-3 text-base font-medium  focus:border-purple-600 focus:ring-0 ${errors.name && 'border-red-700'}`}
-                />
-                {errors.subject && <p className="text-red-700 text-sm mt-1">{errors.subject}</p>}
-              </div>
-              <div className='mb-1'>
-                <label htmlFor="e-mail" className="mb-1 block text-base font-medium text-gray-800">
-                  E-mail
-                </label>
-                <input
-                  type="email"
-                  id='email'
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium  focus:border-purple-600  focus:ring-0 ${errors.name && 'border-red-700'}`}
-                />
-                {errors.email && <p className="text-red-700 text-sm mt-1">{errors.email}</p>}
-              </div>
-              <div className='mb-5'>
-                <label htmlFor="message" className="mb-1 block text-base font-medium text-gray-800">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  name="message"
-                  id='message'
-                  placeholder="Type your message.."
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium focus:border-purple-600  focus:ring-0 ${errors.message && 'border-red-700'}`}
-                />
-                {errors.message && <p className="text-red-700 text-sm mt-1">{errors.message}</p>}
-              </div>
+            <div className="mb-1">
+              <label htmlFor="name" className="mb-1 block text-base font-medium text-gray-800">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name" 
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                autoComplete="on" 
+                className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium focus:border-purple-600 focus:ring-0 focus:shadow-md ${errors.name && 'border-red-700'}`}
+              />
+              {errors.name && <p className="text-red-700 text-sm mt-1">{errors.name}</p>}
+            </div>
+
+            <div className='mb-1'>
+              <label htmlFor="subject" className="mb-1 block text-base font-medium text-gray-800">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject" 
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                autoComplete="on" 
+                className={`w-full rounded-md border border-gray-300 bg-gray-50 py2 px-3 text-base font-medium focus:border-purple-600 focus:ring-0 ${errors.name && 'border-red-700'}`}
+              />
+              {errors.subject && <p className="text-red-700 text-sm mt-1">{errors.subject}</p>}
+            </div>
+
+            <div className='mb-1'>
+              <label htmlFor="email" className="mb-1 block text-base font-medium text-gray-800">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email" 
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete="on" 
+                className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium focus:border-purple-600 focus:ring-0 ${errors.name && 'border-red-700'}`}
+              />
+              {errors.email && <p className="text-red-700 text-sm mt-1">{errors.email}</p>}
+            </div>
+
+            <div className='mb-5'>
+              <label htmlFor="message" className="mb-1 block text-base font-medium text-gray-800">
+                Message
+              </label>
+              <textarea
+                rows={4}
+                id="message" 
+                name="message"
+                placeholder="Type your message.."
+                value={formData.message}
+                onChange={handleChange}
+                autoComplete="on" 
+                className={`w-full rounded-md border border-gray-300 bg-gray-50 py-2 px-3 text-base font-medium focus:border-purple-600 focus:ring-0 ${errors.message && 'border-red-700'}`}
+              />
+              {errors.message && <p className="text-red-700 text-sm mt-1">{errors.message}</p>}
+            </div>
+
               <div className="mx-auto flex items-center justify-center">
                 <button
                     type="submit"
